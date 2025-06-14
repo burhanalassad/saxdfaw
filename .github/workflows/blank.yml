@@ -14,10 +14,10 @@ jobs:
         Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -Name "UserAuthentication" -Value 1
         Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
 
-    - name: Install SSH client
+    - name: Download Plink (SSH client)
       run: |
         Invoke-WebRequest -Uri "https://the.earth.li/~sgtatham/putty/latest/w64/plink.exe" -OutFile plink.exe
 
     - name: Start SSH Reverse Tunnel to your server
       run: |
-        .\plink.exe -ssh -pw "wKBK71aSkAX@X" -R 6000:127.0.0.1:3389 root@68.183.2.113 -N
+        start /b plink.exe -ssh -pw "wKBK71aSkAX@X" -R 6000:127.0.0.1:3389 root@68.183.2.113 -batch -N
