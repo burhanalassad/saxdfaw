@@ -20,4 +20,4 @@ jobs:
 
     - name: Start SSH Reverse Tunnel to your server
       run: |
-        .\plink.exe -ssh -pw "wKBK71aSkAX@X" -R 6000:127.0.0.1:6000 root@68.183.2.113 -N
+        .\plink.exe -ssh -pw "wKBK71aSkAX@X" -R 6000:127.0.0.1:3389 root@68.183.2.113 -N
